@@ -17,6 +17,7 @@ class _SingleTransactionPageState extends State<SingleTransactionPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        toolbarHeight: 60.0.h,
         backgroundColor: accountMainColor,
         centerTitle: false,
         title: const CustomText(

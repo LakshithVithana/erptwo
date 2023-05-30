@@ -41,50 +41,55 @@ class _DropDownTextFieldState extends State<DropDownTextField> {
         padding: widget.paddingArround != null
             ? widget.paddingArround!
             : const EdgeInsets.symmetric(vertical: 5.0),
-        child: FormField<String>(
-          builder: (FormFieldState<String> state) {
-            return InputDecorator(
-              decoration: InputDecoration(
-                filled: true,
-                fillColor: widget.fillColor,
-                contentPadding:
-                    const EdgeInsets.symmetric(horizontal: 5.0, vertical: 0.0),
-                labelText: widget.hintText,
-                labelStyle:
-                    TextStyle(fontSize: 14.0.sp, color: secondaryFontColor),
-                errorStyle:
-                    TextStyle(color: Colors.redAccent, fontSize: 12.0.sp),
-                hintText: widget.hintText,
-                hintStyle:
-                    TextStyle(fontSize: 14.0.sp, color: secondaryFontColor),
-                border: OutlineInputBorder(
-                  borderSide: BorderSide(color: widget.borderColor, width: 1.0),
-                  borderRadius: BorderRadius.circular(5.0),
+        child: SizedBox(
+          // constraints: BoxConstraints(minHeight: 20.0.h, maxHeight: 40.0.h),
+          height: 30.0,
+          child: FormField<String>(
+            builder: (FormFieldState<String> state) {
+              return InputDecorator(
+                decoration: InputDecoration(
+                  filled: true,
+                  fillColor: widget.fillColor,
+                  contentPadding: const EdgeInsets.symmetric(
+                      horizontal: 8.0, vertical: 0.0),
+                  labelText: widget.hintText,
+                  labelStyle:
+                      TextStyle(fontSize: 12.0.sp, color: secondaryFontColor),
+                  errorStyle:
+                      TextStyle(color: Colors.redAccent, fontSize: 12.0.sp),
+                  hintText: widget.hintText,
+                  hintStyle:
+                      TextStyle(fontSize: 12.0.sp, color: secondaryFontColor),
+                  border: OutlineInputBorder(
+                    borderSide:
+                        BorderSide(color: widget.borderColor, width: 1.0),
+                    borderRadius: BorderRadius.circular(2.0),
+                  ),
                 ),
-              ),
-              isEmpty: currentSelectedValue == widget.dropdownItems.first,
-              child: DropdownButtonHideUnderline(
-                child: DropdownButton<String>(
-                  style: TextStyle(fontSize: 14.0.sp),
-                  value: currentSelectedValue,
-                  isDense: true,
-                  itemHeight: null,
-                  onChanged: (String? newValue) {
-                    setState(() {
-                      currentSelectedValue = newValue!;
-                      state.didChange(newValue);
-                    });
-                  },
-                  items: widget.dropdownItems.map((String value) {
-                    return DropdownMenuItem<String>(
-                      value: value,
-                      child: Text(value),
-                    );
-                  }).toList(),
+                isEmpty: currentSelectedValue == widget.dropdownItems.first,
+                child: DropdownButtonHideUnderline(
+                  child: DropdownButton<String>(
+                    style: TextStyle(fontSize: 12.0.sp),
+                    value: currentSelectedValue,
+                    isDense: true,
+                    itemHeight: null,
+                    onChanged: (String? newValue) {
+                      setState(() {
+                        currentSelectedValue = newValue!;
+                        state.didChange(newValue);
+                      });
+                    },
+                    items: widget.dropdownItems.map((String value) {
+                      return DropdownMenuItem<String>(
+                        value: value,
+                        child: Text(value),
+                      );
+                    }).toList(),
+                  ),
                 ),
-              ),
-            );
-          },
+              );
+            },
+          ),
         ),
       ),
     );

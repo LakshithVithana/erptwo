@@ -1,26 +1,25 @@
-import 'package:erptwo/core/constants/colors.dart';
-import 'package:erptwo/features/accounts/accounts.dart';
 import 'package:erptwo/features/home/services/widgets/single_service_tile_widget.dart';
-import 'package:erptwo/features/transactions/transactions.dart';
 import 'package:flutter/material.dart';
 
-class Services extends StatefulWidget {
-  const Services({super.key});
+import '../../../core/constants/colors.dart';
+import '../../accounts/debtors/debtors_page.dart';
+
+class FavoritesPage extends StatefulWidget {
+  const FavoritesPage({super.key});
 
   @override
-  State<Services> createState() => _ServicesState();
+  State<FavoritesPage> createState() => _FavoritesPageState();
 }
 
-class _ServicesState extends State<Services> {
-  final ScrollController allItemsHomeScrollController = ScrollController();
-  // List<String> itemList = [];
+class _FavoritesPageState extends State<FavoritesPage> {
+  List<String> dropdownList = <String>['John Doe', 'Logout'];
+  String dropdownValue = "John Doe";
 
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      controller: allItemsHomeScrollController,
       child: Padding(
-        padding: const EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 0.0),
+        padding: const EdgeInsets.fromLTRB(20.0, 40.0, 20.0, 0.0),
         child: Stack(
           children: [
             Center(
@@ -59,12 +58,12 @@ class _ServicesState extends State<Services> {
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) =>
-                                          const AccountsPage()),
+                                          const DebtorsPage()),
                                 );
                               },
                               favoritePage: true,
-                              iconName: Icons.groups,
-                              title: "Accounts",
+                              iconName: Icons.group,
+                              title: "Debtors",
                               mainColor: accountsColor,
                               hoverColor: accountsHoverColor,
                             ),
@@ -73,68 +72,12 @@ class _ServicesState extends State<Services> {
                               isUnlocked: true,
                               onTap: () {},
                               favoritePage: true,
-                              iconName: Icons.rule_sharp,
-                              title: "Utilities",
-                              mainColor: utilitiesColor,
-                              hoverColor: utilitiesHoverColor,
-                            ),
-                            const SizedBox(height: 20.0),
-                            SingleServiceTileWidget(
-                              isUnlocked: true,
-                              onTap: () {},
-                              favoritePage: true,
-                              iconName: Icons.attach_money,
-                              title: "Finance",
-                              mainColor: financeColor,
-                              hoverColor: financeHoverColor,
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      flex: 2,
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            SingleServiceTileWidget(
-                              isUnlocked: true,
-                              onTap: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) =>
-                                          const TransactionsPage()),
-                                );
-                              },
-                              favoritePage: true,
-                              iconName: Icons.sync_alt,
-                              title: "Transactions",
-                              mainColor: transactionsColor,
-                              hoverColor: transactionsHoverColor,
-                            ),
-                            const SizedBox(height: 20.0),
-                            SingleServiceTileWidget(
-                              isUnlocked: true,
-                              onTap: () {},
-                              favoritePage: true,
-                              iconName: Icons.settings,
-                              title: "Setup",
+                              iconName: Icons.contacts,
+                              title: "Staff",
                               mainColor: setupColor,
                               hoverColor: setupHoverColor,
                             ),
                             const SizedBox(height: 20.0),
-                            SingleServiceTileWidget(
-                              isUnlocked: true,
-                              onTap: () {},
-                              favoritePage: true,
-                              iconName: Icons.support_agent,
-                              title: "CRM",
-                              mainColor: crmColor,
-                              hoverColor: crmHoverColor,
-                            ),
                           ],
                         ),
                       ),
@@ -150,31 +93,33 @@ class _ServicesState extends State<Services> {
                               isUnlocked: true,
                               onTap: () {},
                               favoritePage: true,
-                              iconName: Icons.description,
-                              title: "Reports",
-                              mainColor: reportsColor,
-                              hoverColor: reportsHoverColor,
+                              iconName: Icons.contacts,
+                              title: "Sales Order",
+                              mainColor: transactionsColor,
+                              hoverColor: transactionsHoverColor,
                             ),
                             const SizedBox(height: 20.0),
+                          ],
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      flex: 2,
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
                             SingleServiceTileWidget(
                               isUnlocked: true,
                               onTap: () {},
                               favoritePage: true,
-                              iconName: Icons.file_copy,
-                              title: "Files",
-                              mainColor: fileColor,
-                              hoverColor: fileHoverColor,
+                              iconName: Icons.contacts,
+                              title: "Document Manager",
+                              mainColor: utilitiesColor,
+                              hoverColor: utilitiesHoverColor,
                             ),
                             const SizedBox(height: 20.0),
-                            SingleServiceTileWidget(
-                              isUnlocked: false,
-                              onTap: () {},
-                              favoritePage: true,
-                              iconName: Icons.precision_manufacturing,
-                              title: "Production",
-                              mainColor: productionColor,
-                              hoverColor: productionHoverColor,
-                            ),
                           ],
                         ),
                       ),
@@ -199,6 +144,3 @@ class _ServicesState extends State<Services> {
     );
   }
 }
-
-// hoverColor: outlineColor.withOpacity(0.3),
-//       borderRadius: BorderRadius.circular(5.0),

@@ -1,3 +1,4 @@
+import 'package:erptwo/features/home/favorites/favorites.dart';
 import 'package:erptwo/features/home/services/services.dart';
 import 'package:erptwo/features/home/dashboard/dashboard.dart';
 import 'package:flutter/material.dart';
@@ -22,10 +23,11 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 2,
+      length: 3,
       child: Scaffold(
         backgroundColor: backgroundColor,
         appBar: AppBar(
+          toolbarHeight: 60.0.h,
           backgroundColor: mainColor,
           // toolbarHeight: 30.0,
           // title: Padding(
@@ -43,7 +45,7 @@ class _HomePageState extends State<HomePage> {
           title: Padding(
             padding: const EdgeInsets.fromLTRB(20.0, 8.0, 0.0, 0.0),
             child: Image.asset(
-              "assets/images/logo.png",
+              "assets/images/logo_white_resized.png",
               height: 50.0.h,
             ),
           ),
@@ -157,6 +159,17 @@ class _HomePageState extends State<HomePage> {
                 width: 100.0.w,
                 child: Center(
                   child: CustomText(
+                    text: "Favorites",
+                    fontSize: 16.0.sp,
+                    color: white,
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 35.0.h,
+                width: 100.0.w,
+                child: Center(
+                  child: CustomText(
                     text: "Services",
                     fontSize: 16.0.sp,
                     color: white,
@@ -169,6 +182,7 @@ class _HomePageState extends State<HomePage> {
         body: const TabBarView(
           children: [
             Dashboard(),
+            FavoritesPage(),
             Services(),
           ],
         ),

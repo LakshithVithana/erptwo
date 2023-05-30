@@ -17,18 +17,19 @@ class _DebtorsPageState extends State<DebtorsPage> {
   @override
   Widget build(BuildContext context) {
     AppBar appBar = AppBar(
-      title: const CustomText(
+      toolbarHeight: 60.0.h,
+      title: CustomText(
         text: "Debtors",
-        fontSize: 20.0,
+        fontSize: 20.0.sp,
         fontWeight: FontWeight.normal,
         color: white,
       ),
       leading: IconButton(
         onPressed: () => Navigator.pop(context),
-        icon: const Icon(
+        icon: Icon(
           Icons.arrow_back,
           color: white,
-          size: 26.0,
+          size: 26.0.sp,
         ),
       ),
       backgroundColor: accountMainColor,

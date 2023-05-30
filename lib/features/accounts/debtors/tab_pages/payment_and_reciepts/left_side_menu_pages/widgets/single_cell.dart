@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../../../../../core/shared/widgets/custom_text.dart';
+import '../../../../../../../core/shared/widgets/custom_text.dart';
 
 class SingleCell extends StatefulWidget {
   const SingleCell(

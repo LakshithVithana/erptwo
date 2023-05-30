@@ -4,8 +4,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../../../../core/constants/colors.dart';
 
-class TransactionTableSingleRow extends StatefulWidget {
-  const TransactionTableSingleRow({
+class SalesOrderTableSingleRow extends StatefulWidget {
+  const SalesOrderTableSingleRow({
     super.key,
     required this.width,
     required this.isBold,
@@ -19,12 +19,6 @@ class TransactionTableSingleRow extends StatefulWidget {
     required this.columnEightText,
     required this.columnNineText,
     required this.columnTenText,
-    required this.columnElevenText,
-    required this.columnTwelveText,
-    required this.columnThirteenText,
-    required this.columnFourteenText,
-    required this.columnFifteenText,
-    required this.columnSixteenText,
     required this.onTap,
   });
   final double width;
@@ -39,20 +33,14 @@ class TransactionTableSingleRow extends StatefulWidget {
   final String? columnEightText;
   final String? columnNineText;
   final String? columnTenText;
-  final String? columnElevenText;
-  final String? columnTwelveText;
-  final String? columnThirteenText;
-  final String? columnFourteenText;
-  final String? columnFifteenText;
-  final String? columnSixteenText;
   final onTap;
 
   @override
-  State<TransactionTableSingleRow> createState() =>
-      _TransactionTableSingleRowState();
+  State<SalesOrderTableSingleRow> createState() =>
+      _SalesOrderTableSingleRowState();
 }
 
-class _TransactionTableSingleRowState extends State<TransactionTableSingleRow> {
+class _SalesOrderTableSingleRowState extends State<SalesOrderTableSingleRow> {
   bool isChecked = false;
   @override
   Widget build(BuildContext context) {
@@ -164,48 +152,6 @@ class _TransactionTableSingleRowState extends State<TransactionTableSingleRow> {
                 SingleCell(
                   cellColor: accountsColor.withOpacity(0.1),
                   text: widget.columnTenText!,
-                  fontWeight: widget.isBold == true
-                      ? FontWeight.bold
-                      : FontWeight.normal,
-                ),
-                SingleCell(
-                  cellColor: accountsColor.withOpacity(0.2),
-                  text: widget.columnElevenText!,
-                  fontWeight: widget.isBold == true
-                      ? FontWeight.bold
-                      : FontWeight.normal,
-                ),
-                SingleCell(
-                  cellColor: accountsColor.withOpacity(0.1),
-                  text: widget.columnTwelveText!,
-                  fontWeight: widget.isBold == true
-                      ? FontWeight.bold
-                      : FontWeight.normal,
-                ),
-                SingleCell(
-                  cellColor: accountsColor.withOpacity(0.2),
-                  text: widget.columnThirteenText!,
-                  fontWeight: widget.isBold == true
-                      ? FontWeight.bold
-                      : FontWeight.normal,
-                ),
-                SingleCell(
-                  cellColor: accountsColor.withOpacity(0.1),
-                  text: widget.columnFourteenText!,
-                  fontWeight: widget.isBold == true
-                      ? FontWeight.bold
-                      : FontWeight.normal,
-                ),
-                SingleCell(
-                  cellColor: accountsColor.withOpacity(0.2),
-                  text: widget.columnFifteenText!,
-                  fontWeight: widget.isBold == true
-                      ? FontWeight.bold
-                      : FontWeight.normal,
-                ),
-                SingleCell(
-                  cellColor: accountsColor.withOpacity(0.1),
-                  text: widget.columnSixteenText!,
                   fontWeight: widget.isBold == true
                       ? FontWeight.bold
                       : FontWeight.normal,

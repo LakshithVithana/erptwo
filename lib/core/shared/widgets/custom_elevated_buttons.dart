@@ -11,12 +11,16 @@ class PositiveElevatedButton extends StatelessWidget {
     required this.onPressed,
     this.backgroundColor,
     this.isLoading,
+    this.height,
+    this.borderRadius,
   }) : super(key: key);
 
   final String? label;
   final onPressed;
   final Color? backgroundColor;
   final bool? isLoading;
+  final double? height;
+  final BorderRadiusGeometry? borderRadius;
 
   @override
   Widget build(BuildContext context) {
@@ -24,28 +28,37 @@ class PositiveElevatedButton extends StatelessWidget {
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
         backgroundColor: backgroundColor,
-        shape: const RoundedRectangleBorder(
+        shape: RoundedRectangleBorder(
           // side: BorderSide(color: Color(0xFF2B1722), width: 2.0),
-          borderRadius: BorderRadius.all(Radius.circular(10.0)),
+          borderRadius: borderRadius != null
+              ? borderRadius!
+              : const BorderRadius.all(Radius.circular(2.0)),
         ),
       ),
       child: SizedBox(
         // width: screensize.width * 0.9,
-        height: 45.0.h,
-        child: Center(
-          child: isLoading == null || isLoading == false
-              ? Text(
-                  label!,
-                  style: TextStyle(
-                    fontSize: 16.0.sp,
-                    fontWeight: FontWeight.bold,
-                    color: white,
+        height: height,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 5.0),
+          child: Center(
+            child: isLoading == null || isLoading == false
+                ? Text(
+                    label!,
+                    style: TextStyle(
+                      fontSize: 14.0.sp,
+                      fontWeight: FontWeight.bold,
+                      color: white,
+                    ),
+                  )
+                : const Padding(
+                    padding: EdgeInsets.all(0.0),
+                    child: SizedBox(
+                      height: 22.0,
+                      width: 22.0,
+                      child: CircularProgressIndicator(color: accentColor),
+                    ),
                   ),
-                )
-              : const Padding(
-                  padding: EdgeInsets.all(0.0),
-                  child: CircularProgressIndicator(color: accentColor),
-                ),
+          ),
         ),
       ),
     );

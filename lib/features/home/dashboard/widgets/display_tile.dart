@@ -25,20 +25,22 @@ class DisplayTile extends StatelessWidget {
       ),
       child: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.end,
-          children: [
-            CustomText(
-              text: mainText,
-              fontSize: 24.0.sp,
-              fontWeight: FontWeight.bold,
-            ),
-            CustomText(
-              text: subText,
-              fontSize: 16.0.sp,
-            ),
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              CustomText(
+                text: mainText,
+                fontSize: 24.0.sp,
+                fontWeight: FontWeight.bold,
+              ),
+              CustomText(
+                text: subText,
+                fontSize: 16.0.sp,
+              ),
+            ],
+          ),
         ),
       ),
     );

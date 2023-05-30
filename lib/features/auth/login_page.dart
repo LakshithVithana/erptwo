@@ -22,7 +22,7 @@ class _LoginPageState extends State<LoginPage> {
 
   TextEditingController emailTextEditingController = TextEditingController();
   TextEditingController passwordTextEditingController = TextEditingController();
-  bool isSecure = false;
+  bool isSecure = true;
 
   String? error = "";
   bool? loading = false;
@@ -44,12 +44,13 @@ class _LoginPageState extends State<LoginPage> {
           children: [
             Positioned(
               left: 0,
-              top: 100,
+              top: 70,
               right: 0,
               child: Image.asset(
                 "assets/images/logo_blue.png",
                 height: MediaQuery.of(context).size.height / 1.5,
                 opacity: const AlwaysStoppedAnimation(0.3),
+                filterQuality: FilterQuality.high,
               ),
             ),
             Center(
@@ -60,7 +61,7 @@ class _LoginPageState extends State<LoginPage> {
                     Padding(
                       padding: EdgeInsets.only(top: 70.0.h),
                       child: Container(
-                        height: 580.0.h,
+                        // height: 580.0.h,
                         width: 450.0.w,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(20.0),
@@ -80,7 +81,7 @@ class _LoginPageState extends State<LoginPage> {
                                 Row(
                                   children: [
                                     Image.asset(
-                                      'assets/images/logo_blue.png',
+                                      'assets/images/logo_resized.png',
                                       height: 50.0,
                                     ),
                                     const SizedBox(width: 10.0),
@@ -106,8 +107,9 @@ class _LoginPageState extends State<LoginPage> {
                                   fontWeight: FontWeight.bold,
                                   color: mainFontColor,
                                 ),
-                                const SizedBox(height: 60.0),
+                                SizedBox(height: 40.0.h),
                                 CustomTextFormField(
+                                  height: 50.0,
                                   showLabel: false,
                                   fillColor: white,
                                   onChanged: (value) {
@@ -139,6 +141,7 @@ class _LoginPageState extends State<LoginPage> {
                                 ),
                                 const SizedBox(height: 20.0),
                                 CustomTextFormField(
+                                  height: 50.0,
                                   showLabel: false,
                                   fillColor: white,
                                   onChanged: (value) {
@@ -199,7 +202,9 @@ class _LoginPageState extends State<LoginPage> {
                                 ),
                                 const SizedBox(height: 40.0),
                                 PositiveElevatedButton(
+                                  borderRadius: BorderRadius.circular(5.0),
                                   label: "Login",
+                                  height: 45.0.h,
                                   isLoading: loading,
                                   backgroundColor: secondaryColor,
                                   onPressed: () async {
@@ -226,6 +231,7 @@ class _LoginPageState extends State<LoginPage> {
                                     }
                                   },
                                 ),
+                                const SizedBox(height: 40.0),
                               ],
                             ),
                           ),

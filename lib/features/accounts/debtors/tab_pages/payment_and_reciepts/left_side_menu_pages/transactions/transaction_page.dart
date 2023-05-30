@@ -24,6 +24,19 @@ class _TransactionsLeftSideMenuPageState
 
   @override
   Widget build(BuildContext context) {
+    DropDownTextField dropDownTextField = DropDownTextField(
+      fillColor: accountsHoverColor,
+      borderColor: accountMainColor,
+      width: 220.0.w,
+      hintText: "View Criteria",
+      dropdownItems: const [
+        "",
+        "Only Unallocated Transactions",
+        "Include Current Allocations",
+        "Include All Allocations",
+      ],
+    );
+    print(MediaQuery.of(context).size.width);
     return SingleChildScrollView(
       child: Padding(
         padding: const EdgeInsets.fromLTRB(16.0, 16.0, 20.0, 0.0),
@@ -39,7 +52,7 @@ class _TransactionsLeftSideMenuPageState
                   children: [
                     CustomText(
                       text: "Transactions",
-                      fontSize: 36.0.sp,
+                      fontSize: 24.0.sp,
                       fontWeight: FontWeight.bold,
                     ),
                     const SizedBox(width: 10.0),
@@ -47,7 +60,7 @@ class _TransactionsLeftSideMenuPageState
                 ),
               ],
             ),
-            const SizedBox(height: 10.0),
+            const SizedBox(height: 5.0),
             Container(
               height: 1.0,
               color: deviderColor,
@@ -57,7 +70,7 @@ class _TransactionsLeftSideMenuPageState
               height: 1.0,
               color: deviderColor,
             ),
-            const SizedBox(height: 10.0),
+            // const SizedBox(height: 5.0),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -66,7 +79,7 @@ class _TransactionsLeftSideMenuPageState
                     DropDownTextField(
                       fillColor: accountsHoverColor,
                       borderColor: accountMainColor,
-                      width: 270.0.w,
+                      width: 220.0.w,
                       hintText: "View Criteria",
                       dropdownItems: const [
                         "",
@@ -75,11 +88,12 @@ class _TransactionsLeftSideMenuPageState
                         "Include All Allocations",
                       ],
                     ),
+                    // dropDownTextField,
                     const SizedBox(width: 10.0),
                     DropDownTextField(
                       fillColor: accountsHoverColor,
                       borderColor: accountMainColor,
-                      width: 200.0.w,
+                      width: 170.0.w,
                       hintText: "Allocation Age",
                       dropdownItems: const [
                         "",
@@ -87,8 +101,11 @@ class _TransactionsLeftSideMenuPageState
                     ),
                     const SizedBox(width: 10.0),
                     SizedBox(
-                      width: 200.0.w,
+                      width: 150.0.w,
                       child: const CustomTextFormField(
+                        // height: 30.0,
+                        borderWidth: 1.0,
+                        fontSize: 12.0,
                         showLabel: true,
                         hintText: "Adjustment",
                         fillColor: accountsHoverColor,
@@ -96,8 +113,11 @@ class _TransactionsLeftSideMenuPageState
                     ),
                     const SizedBox(width: 10.0),
                     SizedBox(
-                      width: 200.0.w,
+                      width: 150.0.w,
                       child: const CustomTextFormField(
+                        // height: 30.0,
+                        borderWidth: 1.0,
+                        fontSize: 12.0,
                         showLabel: true,
                         hintText: "Part Allocate(%)",
                         fillColor: accountsHoverColor,
@@ -116,7 +136,7 @@ class _TransactionsLeftSideMenuPageState
                 ),
               ],
             ),
-            const SizedBox(height: 10.0),
+            // const SizedBox(height: 5.0),
             // Container(
             //   height: 1.0,
             //   color: deviderColor,
@@ -125,7 +145,7 @@ class _TransactionsLeftSideMenuPageState
               padding: const EdgeInsets.only(bottom: 20.0),
               child: Container(
                 key: stickyKey,
-                height: MediaQuery.of(context).size.height / 1.6,
+                height: MediaQuery.of(context).size.height / 1.5,
                 width: MediaQuery.of(context).size.width,
                 decoration: BoxDecoration(
                   border: Border.all(),
@@ -183,6 +203,60 @@ class _TransactionsLeftSideMenuPageState
                           columnFourteenText: "200",
                           columnFifteenText: "1234",
                           columnSixteenText: "100",
+                        ),
+                        TransactionTableSingleRow(
+                          width: MediaQuery.of(context).size.width,
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        const SingleTransactionPage()));
+                          },
+                          isBold: false,
+                          columnOneText: "",
+                          columnTwoText: "2",
+                          columnThreeText: "12",
+                          columnFourText: "01.10.23",
+                          columnFiveText: "Water",
+                          columnSixText: "Gampaha",
+                          columnSevenText: "00034",
+                          columnEightText: "Joe",
+                          columnNineText: "Rogan",
+                          columnTenText: "9000",
+                          columnElevenText: "Yes",
+                          columnTwelveText: "Soc",
+                          columnThirteenText: "Yes",
+                          columnFourteenText: "170",
+                          columnFifteenText: "1213",
+                          columnSixteenText: "90",
+                        ),
+                        TransactionTableSingleRow(
+                          width: MediaQuery.of(context).size.width,
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        const SingleTransactionPage()));
+                          },
+                          isBold: false,
+                          columnOneText: "",
+                          columnTwoText: "3",
+                          columnThreeText: "5",
+                          columnFourText: "21.11.23",
+                          columnFiveText: "Travel",
+                          columnSixText: "Cmb 04",
+                          columnSevenText: "00123",
+                          columnEightText: "Mary",
+                          columnNineText: "Jane",
+                          columnTenText: "800",
+                          columnElevenText: "No",
+                          columnTwelveText: "Yio",
+                          columnThirteenText: "No",
+                          columnFourteenText: "190",
+                          columnFifteenText: "4312",
+                          columnSixteenText: "120",
                         ),
                       ],
                     ),

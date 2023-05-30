@@ -30,6 +30,10 @@ class MyApp extends StatelessWidget {
             debugShowCheckedModeBanner: false,
             title: 'Flutter Demo',
             theme: ThemeData(
+              listTileTheme: ListTileTheme.of(context).copyWith(
+                contentPadding: const EdgeInsets.all(0),
+                dense: true,
+              ),
               textTheme: GoogleFonts.interTextTheme(),
               colorScheme: ColorScheme.fromSeed(seedColor: mainColor),
               useMaterial3: true,
